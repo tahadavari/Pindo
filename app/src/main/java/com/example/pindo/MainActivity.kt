@@ -159,11 +159,11 @@ fun RunningOutSection() {
             color = Color.Gray
         )
     }
-    Spacer(modifier = Modifier.height(8.dp))
+    Spacer(modifier = Modifier.height(24.dp))
     Card(
         modifier = Modifier
             .fillMaxWidth()
-            .height(150.dp),
+            .height(364.dp),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFF7F7F7))
     ) {
@@ -181,7 +181,7 @@ fun RunningOutSection() {
                     .weight(1f),
                 contentScale = ContentScale.Crop
             )
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(24.dp))
             Text(
                 text = "Product 01",
                 fontSize = 16.sp,
@@ -236,7 +236,7 @@ fun TopOfferSection() {
             color = Color.Gray
         )
     }
-    Spacer(modifier = Modifier.height(8.dp))
+    Spacer(modifier = Modifier.height(24.dp))
     Column {
         TopOfferItem(rank = 1, productName = "Product 02", price = "6$", originalPrice = "20$", discount = "+71.9%")
         TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")

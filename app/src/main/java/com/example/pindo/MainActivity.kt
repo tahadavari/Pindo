@@ -36,6 +36,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.compose.foundation.lazy.LazyRow
+import androidx.compose.foundation.lazy.items
 import com.example.pindo.ui.theme.PindoTheme
 
 class MainActivity : ComponentActivity() {
@@ -50,8 +52,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-            text = "Hello $name!",
-            modifier = modifier
+        text = "Hello $name!",
+        modifier = modifier
     )
 }
 
@@ -63,18 +65,17 @@ fun GreetingPreview() {
     }
 }
 
-
 @Composable
 fun SplashScreen(onTimeout: () -> Unit) {
     LaunchedEffect(Unit) {
-        kotlinx.coroutines.delay(3000) // تأخیر ۳ ثانیه‌ای
+        kotlinx.coroutines.delay(3000) // 3-second delay
         onTimeout()
     }
 
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFFFFFFFF)), // رنگ نارنجی
+            .background(Color(0xFFFFFFFF)), // White color
         contentAlignment = Alignment.Center
     ) {
         Text(text = "Pindo", fontSize = 48.sp, color = Color(0xFF2C3131))
@@ -141,28 +142,42 @@ fun Header() {
 
 @Composable
 fun RunningOutSection() {
-    Row(
-        modifier = Modifier
-            .fillMaxWidth(),
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Text(
-            text = "Running Out 🔥",
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Bold,
-            color = Color.Black
-        )
-        Spacer(modifier = Modifier.weight(1f))
-        Text(
-            text = "See All",
-            fontSize = 14.sp,
-            color = Color.Gray
-        )
+    Column {
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = "Running Out 🔥",
+                fontSize = 20.sp,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black
+            )
+            Spacer(modifier = Modifier.weight(1f))
+            Text(
+                text = "See All",
+                fontSize = 14.sp,
+                color = Color.Gray
+            )
+        }
+        Spacer(modifier = Modifier.height(24.dp))
+        LazyRow(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(16.dp)
+        ) {
+            items(listOf("Product 01", "Product 02", "Product 03")) { productName ->
+                ProductCard(productName)
+            }
+        }
     }
-    Spacer(modifier = Modifier.height(24.dp))
+}
+
+@Composable
+fun ProductCard(productName: String) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
+            .width(272.dp)
             .height(364.dp),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFF7F7F7))
@@ -183,7 +198,7 @@ fun RunningOutSection() {
             )
             Spacer(modifier = Modifier.height(24.dp))
             Text(
-                text = "Product 01",
+                text = productName,
                 fontSize = 16.sp,
                 fontWeight = FontWeight.Bold,
                 color = Color.Black
@@ -194,7 +209,7 @@ fun RunningOutSection() {
             ) {
                 Column {
                     Text(
-                        text = "20\$",
+                        text = "Price",
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
                         color = Color.Black

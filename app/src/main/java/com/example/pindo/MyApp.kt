@@ -1,12 +1,31 @@
-package com.example.pindo.ui
+package com.example.pindo.ui.screens
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.pindo.ui.theme.PindoTheme
+import com.example.pindo.ui.SplashScreen
+import androidx.compose.material3.Text
+
+@Composable
+fun HomeScreen() {
+    Text(text = "Home Screen")
+}
+
+@Composable
+fun SearchScreen() {
+    Text(text = "Search Screen")
+}
+
+@Composable
+fun NotificationsScreen() {
+    Text(text = "Notifications Screen")
+}
+
+@Composable
+fun ProfileScreen() {
+    Text(text = "Profile Screen")
+}
 
 @Composable
 fun MyApp() {
@@ -23,13 +42,22 @@ fun MyApp() {
         composable("main") {
             MainScreen()
         }
+        composable("home") {
+            HomeScreen() // Define HomeScreen composable
+        }
+        composable("search") {
+            SearchScreen() // Define SearchScreen composable
+        }
+        composable("notifications") {
+            NotificationsScreen() // Define NotificationsScreen composable
+        }
+        composable("profile") {
+            ProfileScreen() // Define ProfileScreen composable
+        }
     }
+
 }
 
-@Preview(showBackground = true)
-@Composable
-fun MyAppPreview() {
-    PindoTheme {
-        MyApp()
-    }
-}
+
+
+

@@ -34,16 +34,13 @@ fun MyApp() {
     NavHost(navController, startDestination = "splash") {
         composable("splash") {
             SplashScreen {
-                navController.navigate("main") {
+                navController.navigate("home") {
                     popUpTo("splash") { inclusive = true }
                 }
             }
         }
-        composable("main") {
-            MainScreen()
-        }
         composable("home") {
-            HomeScreen() // Define HomeScreen composable
+            MainScreen()
         }
         composable("search") {
             SearchScreen() // Define SearchScreen composable

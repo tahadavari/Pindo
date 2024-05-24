@@ -15,7 +15,7 @@ fun SearchScreenTopBar() {
         navigationIcon = {
             IconButton(onClick = { /* Handle category selection */ }) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_home),
+                    painter = painterResource(id = R.drawable.ic_arrow_down),
                     contentDescription = "Category"
                 )
             }
@@ -23,7 +23,7 @@ fun SearchScreenTopBar() {
         actions = {
             IconButton(onClick = { /* Handle filter action */ }) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_home),
+                    painter = painterResource(id = R.drawable.ic_search_and_sort),
                     contentDescription = "Filter"
                 )
             }

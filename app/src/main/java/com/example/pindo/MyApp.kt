@@ -29,7 +29,7 @@ fun MyApp() {
             HomeScreen(navController)
         }
         composable("productDetail") {
-            ProductDetailScreen()
+            ProductDetailScreen(navController)
         }
         composable("search") {
             SearchScreen(navController)

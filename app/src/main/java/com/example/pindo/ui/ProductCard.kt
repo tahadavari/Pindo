@@ -1,5 +1,6 @@
 package com.example.pindo.ui
 
+import android.os.CountDownTimer
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -8,6 +9,11 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -17,9 +23,29 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.graphics.Color
 import androidx.navigation.NavHostController
 import com.example.pindo.R
+import java.util.concurrent.TimeUnit
 
 @Composable
 fun ProductCard(productName: String, navController: NavHostController) {
+    var timeLeftFormatted by remember { mutableStateOf("03h : 23m : 15s") }
+
+    val initialTime = 3 * 60 * 60 * 1000L + 23 * 60 * 1000 + 15 * 1000 // 3 hours, 23 minutes, 15 seconds in milliseconds
+    val countDownTimer = object : CountDownTimer(initialTime, 1000) {
+        override fun onTick(millisUntilFinished: Long) {
+            val hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished)
+            val minutes = TimeUnit.MILLISECONDS.toMinutes(millisUntilFinished) % 60
+            val seconds = TimeUnit.MILLISECONDS.toSeconds(millisUntilFinished) % 60
+            timeLeftFormatted = String.format("%02d:%02d:%02d", hours, minutes, seconds)
+        }
+
+        override fun onFinish() {
+            timeLeftFormatted = "00:00:00"
+        }
+    }
+    LaunchedEffect(key1 = initialTime) {
+        countDownTimer.start()
+    }
+
     Card(
         modifier = Modifier
             .width(272.dp)
@@ -68,7 +94,7 @@ fun ProductCard(productName: String, navController: NavHostController) {
                     )
                 }
                 Text(
-                    text = "03h : 23m : 15s",
+                    text = timeLeftFormatted,
                     fontSize = 14.sp,
                     color = Color.Gray
                 )

@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import com.example.pindo.R
 import java.util.concurrent.TimeUnit
@@ -29,7 +30,8 @@ import java.util.concurrent.TimeUnit
 fun ProductCard(productName: String, navController: NavHostController) {
     var timeLeftFormatted by remember { mutableStateOf("03h : 23m : 15s") }
 
-    val initialTime = 3 * 60 * 60 * 1000L + 23 * 60 * 1000 + 15 * 1000 // 3 hours, 23 minutes, 15 seconds in milliseconds
+    val initialTime =
+        3 * 60 * 60 * 1000L + 23 * 60 * 1000 + 15 * 1000 // 3 hours, 23 minutes, 15 seconds in milliseconds
     val countDownTimer = object : CountDownTimer(initialTime, 1000) {
         override fun onTick(millisUntilFinished: Long) {
             val hours = TimeUnit.MILLISECONDS.toHours(millisUntilFinished)
@@ -42,13 +44,14 @@ fun ProductCard(productName: String, navController: NavHostController) {
             timeLeftFormatted = "00:00:00"
         }
     }
+    val context = LocalContext.current
     LaunchedEffect(key1 = initialTime) {
         countDownTimer.start()
     }
 
     Card(
         modifier = Modifier
-            .width(272.dp)
+            .fillMaxWidth()
             .height(364.dp)
             .clickable { navController.navigate("productDetail") },
         shape = RoundedCornerShape(16.dp),
@@ -78,6 +81,7 @@ fun ProductCard(productName: String, navController: NavHostController) {
             Row(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 modifier = Modifier.fillMaxWidth()
+
             ) {
                 Column {
                     Text(

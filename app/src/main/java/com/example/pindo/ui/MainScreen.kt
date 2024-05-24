@@ -22,7 +22,7 @@ fun MainScreen() {
         NavHost(navController = navController, startDestination = BottomNavItem.Home.screenRoute, modifier = Modifier.padding(innerPadding)) {
             composable(BottomNavItem.Home.screenRoute) { HomeScreen(navController) }
             composable(BottomNavItem.Search.screenRoute) { SearchScreen(navController) }
-            composable("productDetail") { ProductDetailScreen() }
+            composable("productDetail") { ProductDetailScreen(navController) }
         }
     }
 }

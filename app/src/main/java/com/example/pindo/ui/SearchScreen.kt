@@ -1,6 +1,9 @@
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -28,12 +31,13 @@ fun SearchScreen(navController: NavHostController) {
             SearchBar()
             LazyColumn(
                 modifier = Modifier
-                    .padding(padding)
+                    .width(327.dp)
                     .fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 items(10) {
                     ProductCard(productName = "test", navController)
+                    Spacer(modifier = Modifier.height(16.dp))
                 }
             }
         }

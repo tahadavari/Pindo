@@ -11,9 +11,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHostController
 
 @Composable
-fun RunningOutSection() {
+fun RunningOutSection(navController: NavHostController) {
     Column {
         Row(
             modifier = Modifier
@@ -39,7 +40,7 @@ fun RunningOutSection() {
             horizontalArrangement = Arrangement.spacedBy(16.dp)
         ) {
             items(listOf("Product 01", "Product 02", "Product 03")) { productName ->
-                ProductCard(productName)
+                ProductCard(productName, navController)
             }
         }
     }

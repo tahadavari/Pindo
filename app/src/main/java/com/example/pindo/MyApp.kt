@@ -7,25 +7,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.pindo.ui.SplashScreen
 import androidx.compose.material3.Text
 
-@Composable
-fun HomeScreen() {
-    Text(text = "Home Screen")
-}
-
-@Composable
-fun SearchScreen() {
-    Text(text = "Search Screen")
-}
-
-@Composable
-fun NotificationsScreen() {
-    Text(text = "Notifications Screen")
-}
-
-@Composable
-fun ProfileScreen() {
-    Text(text = "Profile Screen")
-}
 
 @Composable
 fun MyApp() {
@@ -41,15 +22,6 @@ fun MyApp() {
         }
         composable("home") {
             MainScreen()
-        }
-        composable("search") {
-            SearchScreen() // Define SearchScreen composable
-        }
-        composable("notifications") {
-            NotificationsScreen() // Define NotificationsScreen composable
-        }
-        composable("profile") {
-            ProfileScreen() // Define ProfileScreen composable
         }
     }
 

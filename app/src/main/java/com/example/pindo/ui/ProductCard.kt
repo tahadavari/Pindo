@@ -1,6 +1,7 @@
 package com.example.pindo.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -14,14 +15,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHostController
 import com.example.pindo.R
 
 @Composable
-fun ProductCard(productName: String) {
+fun ProductCard(productName: String, navController: NavHostController) {
     Card(
         modifier = Modifier
             .width(272.dp)
-            .height(364.dp),
+            .height(364.dp)
+            .clickable { navController.navigate("productDetail") },
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(containerColor = Color(0xFFF7F7F7))
     ) {

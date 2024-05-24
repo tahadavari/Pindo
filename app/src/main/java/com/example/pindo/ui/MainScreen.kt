@@ -1,5 +1,7 @@
 package com.example.pindo.ui.screens
 
+import HomeScreen
+import ProductDetailScreen
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Scaffold
@@ -32,14 +34,12 @@ fun MainScreen() {
         ) {
             Header()
             Spacer(modifier = Modifier.height(16.dp))
-            RunningOutSection()
+            RunningOutSection(navController)
             Spacer(modifier = Modifier.height(16.dp))
             TopOfferSection()
             NavHost(navController = navController, startDestination = BottomNavItem.Home.screenRoute) {
-                composable(BottomNavItem.Home.screenRoute) { HomeScreen() }
-                composable(BottomNavItem.Search.screenRoute) { SearchScreen() }
-                composable(BottomNavItem.Notifications.screenRoute) { NotificationsScreen() }
-                composable(BottomNavItem.Profile.screenRoute) { ProfileScreen() }
+                composable(BottomNavItem.Home.screenRoute) { HomeScreen(navController) }
+                composable("productDetail") { ProductDetailScreen() }
             }
         }
     }

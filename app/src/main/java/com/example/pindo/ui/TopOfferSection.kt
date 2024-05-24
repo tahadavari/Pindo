@@ -34,5 +34,13 @@ fun TopOfferSection() {
     Column {
         TopOfferItem(rank = 1, productName = "Product 02", price = "6$", originalPrice = "20$", discount = "+71.9%")
         TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")
+        TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")
+        TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")
+        TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")
+        TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")
+        TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")
+        TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")
+        TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")
+        TopOfferItem(rank = 2, productName = "Product 03", price = "24$", originalPrice = "60$", discount = "+64.1%")
     }
 }

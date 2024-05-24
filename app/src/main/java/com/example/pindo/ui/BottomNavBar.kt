@@ -17,7 +17,7 @@ sealed class BottomNavItem(var title: String, var icon: Int, var screenRoute: St
     object Home : BottomNavItem("Home", R.drawable.ic_home, "home")
     object Search : BottomNavItem("Search", R.drawable.ic_search, "search")
     object Notifications : BottomNavItem("Notifications", R.drawable.ic_notification, "notifications")
-    object Profile : BottomNavItem("Profile", R.drawable.ic_home, "profile")
+    object Profile : BottomNavItem("Profile", R.drawable.ic_profile, "profile")
 }
 
 @Composable

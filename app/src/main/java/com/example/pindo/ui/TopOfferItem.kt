@@ -1,6 +1,7 @@
 package com.example.pindo.ui
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Text
@@ -13,15 +14,17 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHostController
 import com.example.pindo.R
 
 @Composable
-fun TopOfferItem(rank: Int, productName: String, price: String, originalPrice: String, discount: String) {
+fun TopOfferItem(rank: Int, productName: String, price: String, originalPrice: String, discount: String, navController: NavHostController) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(vertical = 8.dp),
-        verticalAlignment = Alignment.CenterVertically
+            .padding(vertical = 8.dp)
+            .clickable { navController.navigate("productDetail") },
+        verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(
             text = "$rank",

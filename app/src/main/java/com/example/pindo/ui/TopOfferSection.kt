@@ -11,9 +11,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.graphics.Color
+import androidx.navigation.NavHostController
 
 @Composable
-fun TopOfferSection() {
+fun TopOfferSection(navController: NavHostController) {
     Row(
         modifier = Modifier
             .fillMaxWidth(),
@@ -54,8 +55,10 @@ fun TopOfferSection() {
                 productName = item.second,
                 price = "24$",
                 originalPrice = "60$",
-                discount = "+64.1%"
+                discount = "+64.1%",
+                navController
             )
         }
     }
 }
+

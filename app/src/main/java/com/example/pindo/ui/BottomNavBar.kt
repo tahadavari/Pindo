@@ -15,7 +15,7 @@ import com.example.pindo.R
 
 sealed class BottomNavItem(var title: String, var icon: Int, var selectedIcon: Int, var screenRoute: String) {
     object Home : BottomNavItem("Home", R.drawable.ic_home, R.drawable.ic_home_selected, "home")
-    object Search : BottomNavItem("Search", R.drawable.ic_search, R.drawable.ic_search, "search")
+    object Search : BottomNavItem("Search", R.drawable.ic_search, R.drawable.ic_search_selected, "search")
     object Notifications : BottomNavItem("Notifications", R.drawable.ic_notification, R.drawable.ic_notification, "notifications")
     object Profile : BottomNavItem("Profile", R.drawable.ic_profile, R.drawable.ic_profile, "profile")
 }

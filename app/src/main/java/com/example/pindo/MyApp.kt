@@ -2,6 +2,7 @@ package com.example.pindo.ui.screens
 
 import HomeScreen
 import ProductDetailScreen
+import SearchScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -29,6 +30,9 @@ fun MyApp() {
         }
         composable("productDetail") {
             ProductDetailScreen()
+        }
+        composable("search") {
+            SearchScreen(navController)
         }
     }
 

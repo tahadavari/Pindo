@@ -2,6 +2,7 @@ package com.example.pindo.ui.screens
 
 import HomeScreen
 import ProductDetailScreen
+import SearchScreen
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ fun MainScreen() {
     ) { innerPadding ->
         NavHost(navController = navController, startDestination = BottomNavItem.Home.screenRoute, modifier = Modifier.padding(innerPadding)) {
             composable(BottomNavItem.Home.screenRoute) { HomeScreen(navController) }
+            composable(BottomNavItem.Search.screenRoute) { SearchScreen(navController) }
             composable("productDetail") { ProductDetailScreen() }
         }
     }

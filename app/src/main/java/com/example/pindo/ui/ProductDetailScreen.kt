@@ -1,5 +1,6 @@
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -9,6 +10,8 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -18,9 +21,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.pindo.R
@@ -44,7 +50,7 @@ fun ProductDetailScreen() {
                 actions = {
                     IconButton(onClick = { /* Handle more actions */ }) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_home),
+                            painter = painterResource(id = R.drawable.ic_more),
                             contentDescription = "More"
                         )
                     }
@@ -59,21 +65,39 @@ fun ProductDetailScreen() {
                     .fillMaxSize(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
                 Box(
                     modifier = Modifier
-                        .size(200.dp)
-                        .background(Color.Gray)
+                        .size(327.dp)
+                        .shadow(
+                            elevation = 30.dp,
+                            shape = RoundedCornerShape(16.dp)
+                        )
+                        .clip(RoundedCornerShape(16.dp))
+
                 ) {
-                    // Add Image here
+                    Image(
+                        painter = painterResource(id = R.drawable.placeholder_image),
+                        contentDescription = "Profile Image",
+                        modifier = Modifier
+                            .size(327.dp)
+                            .clip(RoundedCornerShape(16.dp)),
+                    )
                 }
 
-                Spacer(modifier = Modifier.height(16.dp))
 
-                Text(
-                    text = "Product 01",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 24.sp
-                )
+
+
+                Spacer(modifier = Modifier.height(16.dp))
+                Row {
+                    Text(
+                        text = "Product 01",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 24.sp,
+                        textAlign = TextAlign.Start
+                    )
+                }
+
 
                 Spacer(modifier = Modifier.height(8.dp))
 

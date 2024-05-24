@@ -1,11 +1,12 @@
 package com.example.pindo.ui.screens
 
+import HomeScreen
+import ProductDetailScreen
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.pindo.ui.SplashScreen
-import androidx.compose.material3.Text
 
 
 @Composable
@@ -15,13 +16,19 @@ fun MyApp() {
     NavHost(navController, startDestination = "splash") {
         composable("splash") {
             SplashScreen {
-                navController.navigate("home") {
+                navController.navigate("main") {
                     popUpTo("splash") { inclusive = true }
                 }
             }
         }
-        composable("home") {
+        composable("main") {
             MainScreen()
+        }
+        composable("home") {
+            HomeScreen(navController)
+        }
+        composable("productDetail") {
+            ProductDetailScreen()
         }
     }
 

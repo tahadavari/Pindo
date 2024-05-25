@@ -44,7 +44,6 @@ fun ProductCard(productName: String, navController: NavHostController) {
             timeLeftFormatted = "00:00:00"
         }
     }
-    val context = LocalContext.current
     LaunchedEffect(key1 = initialTime) {
         countDownTimer.start()
     }
